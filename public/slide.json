@@ -1,14 +1,26 @@
 [
 	{
+		"image": "/Peter_Stuyvesant.jpg",
+		"number": 145
+	},
+	{
 		"image": "/wfvanN.jpg",
-		"number": 199
+		"number": 158
 	},
 	{
 		"image": "/Szentgot.jpg",
-		"number": 200
+		"number": 165
 	},
 	{
 		"image": "/nieuweKerk.jpg",
 		"number": 201
+	},
+	{
+		"image": "/GerardDou.jpeg",
+		"number": 256
+	},
+	{
+		"image": "/bier.jpg",
+		"number": 405
 	}
 ]
