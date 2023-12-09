@@ -15,10 +15,10 @@ export default function Home() {
 
 	const handleSlideChange = async (newIndex: number) => {
 		const adjustedIndex = (newIndex + slides.length) % slides.length;
-		await controls.start({ opacity: 0, rotateY: -180 });
+		await controls.start({ opacity: 0, scale: 1.05 });
 		setCurrentSlide(slides[adjustedIndex]);
 		setSlideIndex(adjustedIndex);
-		await controls.start({ opacity: 1, rotateY: 0 });
+		await controls.start({ opacity: 1, scale: 1 });
 	};
 
 	const handleClickLeft = () => {
@@ -30,7 +30,7 @@ export default function Home() {
 	};
 
 	useEffect(() => {
-		controls.start({ opacity: 1, rotateY: 0 });
+		controls.start({ opacity: 1, scale: 0.9 });
 	}, [controls]);
 
 	return (
@@ -43,7 +43,9 @@ export default function Home() {
 			</Head>
 			<main className={styles.main}>
 				<div className={styles.columnLeft}>
-					<button onClick={handleClickLeft}>Previous</button>
+					<button className={styles.navigationButton} onClick={handleClickLeft}>
+						&lt;
+					</button>
 				</div>
 				<div className={styles.columnCenter}>
 					<MotionDiv className={styles.imageContainer} animate={controls}>
@@ -53,13 +55,18 @@ export default function Home() {
 							layout="fill" // Fills the container
 							objectFit="cover" // Fill the container while maintaining aspect ratio
 						/>
-						<div className={styles.imageContainer__imageTag}>
-							{currentSlide.number}
-						</div>
 					</MotionDiv>
+					<div className={styles.imageContainer__imageTag}>
+						{currentSlide.number}
+					</div>
 				</div>
 				<div className={styles.columnRight}>
-					<button onClick={handleClickRight}>Next</button>
+					<button
+						className={styles.navigationButton}
+						onClick={handleClickRight}
+					>
+						&gt;
+					</button>
 				</div>
 			</main>
 		</>
