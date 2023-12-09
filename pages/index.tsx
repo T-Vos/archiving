@@ -13,7 +13,7 @@ export default function Home() {
 
 	const controls = useAnimation();
 
-	const handleSlideChange = async (newIndex) => {
+	const handleSlideChange = async (newIndex: number) => {
 		const adjustedIndex = (newIndex + slides.length) % slides.length;
 		await controls.start({ opacity: 0, rotateY: -180 });
 		setCurrentSlide(slides[adjustedIndex]);
